@@ -92,7 +92,10 @@ var selectedOptions = [];
 	<div id="right-area">
 	    <div id="profile_pic">
 	   
-	      <?php echo get_avatar( $current_user ); ?>
+
+        <p id="user-avatar-display-image"><?php echo user_avatar_get_avatar($current_user->ID, 150); ?></p>
+        <a id="user-avatar-link" class="button-primary thickbox" href="<?php echo admin_url('admin-ajax.php'); ?>?action=user_avatar_add_photo&step=1&uid=<?php echo $current_user->ID; ?>&TB_iframe=true&width=720&height=450" title="<?php _e('Upload and Crop an Image to be Displayed','user-avatar'); ?>" ><?php _e('Update Picture','user-avatar'); ?></a>
+
 	    </div>
 	    <div id="right-area-lower">
 	    </div>

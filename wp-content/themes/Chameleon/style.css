@@ -27,13 +27,14 @@ padding: 0 2px;
 #right-area-lower {
   
  border-top: 1px solid #E2E1E1;
-  margin-top: 3em;
+  margin-top: 1em;
   margin-left: auto;
   margin-right: auto;
   width: 120%;
   float: right;
  
 }
+
 
 .avatar {
  height: 150px;
@@ -47,6 +48,13 @@ padding: 0 2px;
 	width: 370px;
 }
 
+.submit .button-primary 
+{
+  float: right;
+margin-top: 5em;
+margin-bottom: -4em;
+
+}
 
 /*MY THEME LOGIN */
 .login input {
@@ -59,6 +67,16 @@ padding: 0 2px;
 
 #your-profile .form-table td {
  padding: 0; /*Needs to be 0 otherwise rich text area becomes distorted */
+}
+
+
+/*User Avatar */
+#user-avatar-display{
+ display:none; /* so it does not repeat again in the profile */
+}
+
+#user-avatar-link {
+ padding-left:3em; 
 }
 
 /*------------------------------------------------*/
