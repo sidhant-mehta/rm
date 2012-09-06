@@ -30,7 +30,7 @@
 	font-size: 11px;
 	line-height: 20px;
 	margin-bottom: 9px;
-	padding: 8px 10px;
+	/*padding: 8px 10px; Needs to be 0 because otherwise rich text area gets distorted */
 }
 
 #your-profile .form-table div.color-option {
@@ -40,7 +40,7 @@
 }
 
 #your-profile .form-table input {
-	margin: 1px;
+	/*margin: 1px; */
 	padding: 3px;
 	line-height: 15px;
 }

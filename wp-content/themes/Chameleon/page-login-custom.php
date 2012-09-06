@@ -4,6 +4,8 @@ Template Name: Login Page (Custom)
 */
 ?>
 <?php 
+global $current_user;
+ $current_user = wp_get_current_user();
 	$et_ptemplate_settings = array();
 	$et_ptemplate_settings = maybe_unserialize( get_post_meta($post->ID,'et_ptemplate_settings',true) );
 	
@@ -51,8 +53,12 @@ Template Name: Login Page (Custom)
 		</div> <!-- end .entry -->
 	<?php endwhile; endif; ?>
 	</div> 	<!-- end #left-area -->
-
-	<?php if (!$fullwidth) get_sidebar(); ?>
+	<div id="right-area">
+	    <div id="profile_pic">
+	   
+	      <?php echo get_avatar( $current_user ); ?>
+	    </div>
+	</div> <!-- end right-area -->
 </div> <!-- end #content -->
 		
 <?php get_footer(); ?>

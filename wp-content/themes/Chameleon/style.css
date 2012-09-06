@@ -7,8 +7,16 @@ Author: Elegant Themes
 Author URI: http://www.elegantthemes.com
 */
 
-h3 {
- padding-top: 1em; 
+#right-area{
+ float:right; 
+}
+
+.avatar {
+ height: 150px;
+  width: 150px;
+  margin-right: 4em;
+  display: block;
+  margin-top: 8em;
 }
 
 #et-multi-media {
@@ -23,6 +31,10 @@ h3 {
 
 #login .cimy_uef_input_27, .cimy_uef_picture {
  font-size: inherit; 
+}
+
+#your-profile .form-table td {
+ padding: 0; /*Needs to be 0 otherwise rich text area becomes distorted */
 }
 
 /*------------------------------------------------*/
@@ -74,7 +86,7 @@ h1, h2, h3, h4, h5, h6 { padding-bottom: 5px; color: #808080; letter-spacing: -1
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { color: #808080; }
 h1 { font-size: 30px; }
 h2 { font-size: 24px; }
-h3 { font-size: 22px;  }
+h3 { font-size: 22px;  padding: 1em 0;  }
 h4 { font-size: 18px; }
 h5 { font-size: 16px; }
 h6 { font-size: 14px; }
