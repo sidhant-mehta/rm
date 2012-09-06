@@ -13,9 +13,45 @@ global $current_user;
 ?>
 
 <?php get_header(); ?>
+<!--
+<script type="text/javascript">
+window.onload = function() {
+  multiSelect = document.getElementById('cimy_uef_9');
+  multiSelect.onchange= countSelected(this,3);
+}
+var selectedOptions = [];
+ function countSelected(select,maxNumber){ 
+   for(var i=0; i<select.length; i++){
+     if(select.options[i].selected && !new RegExp(i,'g').test(selectedOptions.toString())){
+        selectedOptions.push(i); 
+     }
 
+     if(!select.options[i].selected && new RegExp(i,'g').test(selectedOptions.toString())){
+      selectedOptions = selectedOptions.sort(function(a,b){return a-b});  
+       for(var j=0; j<selectedOptions.length; j++){ 
+         if(selectedOptions[j] == i){
+            selectedOptions.splice(j,1);
+         }
+       } 
+     }
+
+     if(selectedOptions.length > maxNumber){
+        alert('You may only choose '+maxNumber+' options!!');
+        select.options[i].selected = false;
+        selectedOptions.pop();
+        document.body.focus();
+     }  
+   }    
+ }
+ 
+</script>
+-->
 <?php get_template_part('includes/breadcrumbs'); ?>
-<?php get_template_part('includes/top_info'); ?>
+<div id="category-name">
+	<div id="category-inner">
+		<h1 class="category-title"><?php echo wp_kses( "My Profile", array( 'span' => array() ) ); ?></h1>
+	</div>
+</div>
 
 <div id="content" class="clearfix<?php if($fullwidth) echo(' fullwidth');?>">
 	<div id="left-area">

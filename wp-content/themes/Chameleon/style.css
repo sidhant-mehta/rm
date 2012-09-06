@@ -7,6 +7,19 @@ Author: Elegant Themes
 Author URI: http://www.elegantthemes.com
 */
 
+
+#profile-icons {
+ float:left;
+ padding-top: 9px;
+padding-right: 15px;
+}
+
+#profile-icons img{
+ width: 13px;
+height: 14px;
+padding: 0 2px;
+}
+
 #right-area{
  float:right; 
 }
