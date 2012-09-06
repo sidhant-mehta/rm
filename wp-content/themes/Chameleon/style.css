@@ -11,16 +11,27 @@ Author URI: http://www.elegantthemes.com
  float:right; 
 }
 
+#right-area-lower {
+  
+ border-top: 1px solid #E2E1E1;
+  margin-top: 3em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 120%;
+  float: right;
+ 
+}
+
 .avatar {
  height: 150px;
   width: 150px;
   margin-right: 4em;
   display: block;
-  margin-top: 8em;
+  margin-top: 3em;
 }
 
 #et-multi-media {
-	//width: 370px;
+	width: 370px;
 }
 
 

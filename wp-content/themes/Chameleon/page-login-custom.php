@@ -58,6 +58,8 @@ global $current_user;
 	   
 	      <?php echo get_avatar( $current_user ); ?>
 	    </div>
+	    <div id="right-area-lower">
+	    </div>
 	</div> <!-- end right-area -->
 </div> <!-- end #content -->
 		

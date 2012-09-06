@@ -61,7 +61,7 @@
 					<?php }; ?>
 
 					<?php show_page_menu($menuClass,false,false); ?>
-					<?php show_categories_menu($menuClass,false); ?>
+			
 				</ul> <!-- end ul#nav -->
 			<?php }
 			else echo($primaryNav); ?>
