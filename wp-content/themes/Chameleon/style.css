@@ -30,7 +30,8 @@ letter-spacing: 5px;
 }
 
 #mentor-pic {
- float:right; 
+  margin-top: 2em;
+  float:right; 
 }
 
 thead {
@@ -38,7 +39,9 @@ thead {
 }
 
 thead th {
-  display: block;   
+  display: block;
+margin-bottom: -2px;
+margin-right: 2em;
 }
 
 tbody {

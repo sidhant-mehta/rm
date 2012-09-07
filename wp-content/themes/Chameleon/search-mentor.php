@@ -1,6 +1,6 @@
 <?php
 
-/* Template Name: Team */
+/* Template Name: search-mentor */
 
  get_header(); ?>
       <?php get_template_part('includes/breadcrumbs'); ?>
@@ -45,7 +45,7 @@
 	     ?>
           <div id="mentor">
 	    <div id="mentor-details">
-		<li>
+		
 		    <a id="mentor-link" href="<?php echo get_permalink(); ?><?php echo $mentor_slug; ?>">
 			<span id="mentor-name"> <?php echo $mentor_name; ?> </span>
 		    </a>
@@ -73,41 +73,9 @@
 			  
 			</tbody>
 		    </table>
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   <table>
-		    
-		    <tr>
-			<th class="mentor-information" scope="col"> </th>
-			<th class="mentor-information" scope="col">Location</th>
-			<th class="mentor-information" scope="col"></th>
-		    </tr>
-		    
-		    <tr>
-<!-- 			<th scope="row"></th> -->
-			<td></td>
-			<td> </td>
-			<td> </td>
-		    </tr>
-	
-		    
-		    </table>
-		    <br />
-		    
-		    
-		    <br />
-		    
-		   <br /> 
 			
 			
-		</li>
+		
 	    </div>
            <div id="mentor-pic">
 		  
@@ -116,12 +84,12 @@
 		  <?php endif ?>
            </div>
            </div>
-    </div>
+    
     <!-- /mentor -->
             
           <?php endwhile ?>
         <?php endif ?>
-
+</div>
         </div>
     </div>
         
