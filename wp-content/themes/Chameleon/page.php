@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?
+/* Template Name: Mentor-Search */
+php get_header(); ?>
 
 <?php get_template_part('includes/breadcrumbs'); ?>
 <?php get_template_part('includes/top_info'); ?>
