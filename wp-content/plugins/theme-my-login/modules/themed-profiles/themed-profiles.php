@@ -265,7 +265,7 @@ class Theme_My_Login_Themed_Profiles extends Theme_My_Login_Module {
 	function tml_title( $title, $action ) {
 		global $theme_my_login;
 		if ( 'profile' == $action && is_user_logged_in() && '' == $theme_my_login->request_instance )
-			$title = __( 'Your Profile', 'theme-my-login' );
+			$title = __( 'My Profile', 'theme-my-login' );
 		return $title;
 	}
 

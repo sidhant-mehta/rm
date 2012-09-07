@@ -98,7 +98,7 @@
 								$media_open = true; ?>
 								<div class="media-slide">
 							<?php } ?>
-									<div class="thumb<?php if ( $media_current_post % 7 == 0 ) echo ' last'; ?>">
+									<div class="thumb<?php if ( $media_current_post % 4 == 0 ) echo ' last'; ?>">
 										<?php if ( $et_medialink <> '' ) { ?>
 											<a href="<?php echo esc_url($et_medialink); ?>">
 										<?php } elseif ( $et_videolink <> '' ) { ?>

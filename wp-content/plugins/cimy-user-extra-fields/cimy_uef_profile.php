@@ -358,13 +358,16 @@ function cimy_extract_ExtraFields() {
 				$form_object.= " />";
 
 			echo "<th>";
+			if ( !empty($description) )
+			     echo "<span class='description' style='padding-right: 8em;'>".$description."</span>" ; //added SM
+			
 			echo $obj_label;
 			echo "</th>\n";
 
 			echo "\t\t<td>";
 
 			if ((!empty($description)) && (($type == "picture") || ($type == "picture-url")))
-				echo "<span class='description'>".$description."</span><br />";
+				//echo "<span class='description'>".$description."</span><br />";
 
 			if (in_array($type, $cimy_uef_file_types)) {
 				$profileuser = get_user_to_edit($get_user_id);
@@ -502,7 +505,7 @@ function cimy_extract_ExtraFields() {
 				else
 					echo " ";
 
-				echo "<span class='description'>".$description."</span>" ;
+				//echo "<span class='description'>".$description."</span>" ;
 			}
 
 			echo "</td>";
@@ -724,6 +727,8 @@ function cimy_update_ExtraFields() {
 		}
 	}
 
+	
+	
 	if ($i > 0) {
 		$query.=" ELSE FIELD_ID END WHERE FIELD_ID IN(".$field_ids.") AND USER_ID = ".$get_user_id;
 
