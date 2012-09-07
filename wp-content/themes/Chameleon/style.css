@@ -18,6 +18,8 @@ padding: 0 0 1em 1em;
 line-height: 3em; 
 float: left;
 width: 100%;
+margin-top: 1em;
+
 }
 
 #mentor-details{
@@ -48,6 +50,10 @@ tbody {
   float: right;   
 }
 
+#apply_but {
+margin-top: 3em;
+clear: both;
+}
 
 #profile-icons {
  float:left;

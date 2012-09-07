@@ -74,7 +74,7 @@
 			</tbody>
 		    </table>
 			
-			
+		 
 		
 	    </div>
            <div id="mentor-pic">
@@ -83,6 +83,9 @@
 		    <img src="<?php echo $mentor_pic; ?>" style="width:150px;" alt="Photo of <?php echo $mentor_name; ?>" />
 		  <?php endif ?>
            </div>
+           
+           <a href="#" id="apply_but" class="icon-button paper-icon"><span class="et-icon"><span>Apply</span></span></a>
+           
            </div>
     
     <!-- /mentor -->
