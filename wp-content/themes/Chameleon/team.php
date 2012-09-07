@@ -16,7 +16,7 @@
 <div id="content" class="clearfix">
 	<div id="left-area">
 
-        <div id="search-mentor-details">
+        <div id="all_mentors">
 	  <p>Here can be some information on how to use the search function, just like a smalll intraduction </p>
         </div>
         
@@ -37,12 +37,18 @@
               $mentor_slug      = $mentor->get_field('detail_url');
 
             ?>
-            
-           <li>
-                <a href="<?php echo get_permalink(); ?><?php echo $mentor_slug; ?>">
-                  <?php echo $mentor_name; ?> - <?php echo $mentor_position; ?>
-                </a>
-           </li>
+          <div id="mentor">
+	    <div id="mentor-details">
+		<li>
+		      <a href="<?php echo get_permalink(); ?><?php echo $mentor_slug; ?>">
+			<?php echo $mentor_name; ?> - <?php echo $mentor_position; ?>
+		      </a>
+		</li>
+	    </div>
+           <div id="mentor-pic">
+           
+           </div>
+           </div>
             <!-- /mentor -->
             
           <?php endwhile ?>
