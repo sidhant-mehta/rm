@@ -1,6 +1,6 @@
-make sure only one email filed show, and is in correct position.
-
+chekc how the profile page looks from user side
+make sure the login only displays one login
 Set up the projects adn mentors search page
 fix the mentors and projects tags/custom fields
 have a apply button -> makes sure you have a CV available. ->sends email to HR -> subject = [metor name] + application. body= studnet name + CV
-add icons next to social for login/logout(text?) and myprofile (pic of person) -> only displays if logged in..
+fix top level navigation - take out pages you dont want. 
