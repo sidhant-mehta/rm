@@ -7,15 +7,76 @@ Author: Elegant Themes
 Author URI: http://www.elegantthemes.com
 */
 
-#et-multi-media {
-	//width: 370px;
+
+#profile-icons {
+ float:left;
+ padding-top: 9px;
+padding-right: 15px;
+}
+
+#profile-icons img{
+ width: 13px;
+height: 14px;
+padding: 0 2px;
+}
+
+#right-area{
+ float:right; 
+}
+
+#right-area-lower {
+  
+ border-top: 1px solid #E2E1E1;
+  margin-top: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 120%;
+  float: right;
+ 
 }
 
 
+.avatar {
+ height: 150px;
+  width: 150px;
+  margin-right: 4em;
+  display: block;
+  margin-top: 3em;
+}
+
+#et-multi-media {
+	width: 370px;
+}
+
+.submit .button-primary 
+{
+  float: right;
+margin-top: 5em;
+margin-bottom: -4em;
+
+}
 
 /*MY THEME LOGIN */
 .login input {
  font-size: 1em; 
+}
+
+#login .cimy_uef_input_27, .cimy_uef_picture {
+ font-size: inherit; 
+}
+
+#your-profile .form-table td {
+ padding: 0; /*Needs to be 0 otherwise rich text area becomes distorted */
+}
+
+
+/*User Avatar */
+#user-avatar-display{
+ display:none; /* so it does not repeat again in the profile */
+}
+
+#user-avatar-link {
+ padding-left:3em; 
 }
 
 /*------------------------------------------------*/
@@ -67,7 +128,7 @@ h1, h2, h3, h4, h5, h6 { padding-bottom: 5px; color: #808080; letter-spacing: -1
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { color: #808080; }
 h1 { font-size: 30px; }
 h2 { font-size: 24px; }
-h3 { font-size: 22px; }
+h3 { font-size: 22px;  padding: 1em 0;  }
 h4 { font-size: 18px; }
 h5 { font-size: 16px; }
 h6 { font-size: 14px; }
@@ -148,7 +209,7 @@ img#about-image { float: left; margin: 3px 8px 8px 0px; }
 	#category-name { text-align: center; width: 890px; margin: 0 auto; padding-top:38px; background: url(images/top-category-bg.png) no-repeat; }
 		#category-inner { background: url(images/bottom-category-bg.png) no-repeat bottom left; padding-bottom: 28px; }
 			h1.category-title { color: #1d1d1d; font-size:28px; font-family: 'Kreon', Arial, sans-serif; font-weight: lighter; }
-			p.description { color: #929292; font-size:20px; font-family: 'Kreon', Arial, sans-serif; font-weight: lighter; }
+			p.description { /*color: #929292; */ font-size:1em; /*font-family: 'Kreon', Arial, sans-serif; font-weight: lighter; */ padding-bottom: 0px; }
 		#content { padding: 0px 48px 60px; background: url(images/content-bg.png) repeat-y 633px 0px; }
 		.fullwidth { background: none !important; }
 			#left-area { width: 586px; float:left; }

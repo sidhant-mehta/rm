@@ -101,3 +101,19 @@ jQuery(document).ready(function(){
 		if (jQuery("input#url").val() === jQuery("input#url").siblings('label').text()) jQuery("input#url").val("");
 	});
 });
+
+function changeSocialIcon(hover,obj)
+{
+  icon = obj;
+  originalSrc = icon.src;
+  
+  if (hover)
+  {
+    icon.src = originalSrc.replace('.png','_hover.png');
+  }
+  else
+  {
+    icon.src = originalSrc.replace('_hover.png','.png');
+  }
+}
+

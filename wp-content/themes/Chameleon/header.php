@@ -61,12 +61,23 @@
 					<?php }; ?>
 
 					<?php show_page_menu($menuClass,false,false); ?>
-					<?php show_categories_menu($menuClass,false); ?>
+			
 				</ul> <!-- end ul#nav -->
 			<?php }
 			else echo($primaryNav); ?>
 
 			<div id="additional-info">
+				<div id="profile-icons">
+				    <?php 
+				    if ( is_user_logged_in() ) { ?>
+				    <a href="<?php echo bloginfo('url'); ?>/?page_id=45&action=profile">
+					<img src= "<?php echo get_bloginfo('template_directory'); ?>/images/people-icon.png" alt="My Profile"/>
+				    </a>
+				     <a href="<?php echo bloginfo('url'); ?>/?page_id=45&action=logout&_wpnonce=9403ecfb64">
+					<img src= "<?php echo get_bloginfo('template_directory'); ?>/images/logout-icon.png" alt="Logout"/>
+				    </a>
+				    <?php }?>
+				</div>
 				<div id="et-social-icons">
 					<?php
 						$et_rss_url = get_option('chameleon_rss_url') <> '' ? get_option('chameleon_rss_url') : get_bloginfo('comments_rss2_url');
@@ -75,8 +86,10 @@
 						if ( get_option('chameleon_show_facebook_icon') == 'on' ) $social_icons['facebook'] = array('image' => get_bloginfo('template_directory') . '/images/facebook.png', 'url' => get_option('chameleon_facebook_url'), 'alt' => 'Facebook' );
 						$social_icons = apply_filters('et_social_icons', $social_icons);
 						if ( !empty($social_icons) ) {
+							$count = 0;
 							foreach ($social_icons as $icon) {
-								echo "<a href='" . esc_url($icon['url']) . "' target='_blank'><img alt='" . esc_attr($icon['alt']) . "' src='" . esc_url($icon['image']) . "' /></a>";
+								echo "<a href='" . esc_url($icon['url']) . "' target='_blank'><img id='social_icon$count;' alt='" . esc_attr($icon['alt']) . "' src='" . esc_url($icon['image']) . "' onmouseover='changeSocialIcon(true,this)' onmouseout='changeSocialIcon(false,this)' /></a>";
+								$count = $count + 1;
 							}
 						}
 					?>

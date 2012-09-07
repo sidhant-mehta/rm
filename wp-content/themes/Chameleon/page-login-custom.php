@@ -4,6 +4,8 @@ Template Name: Login Page (Custom)
 */
 ?>
 <?php 
+global $current_user;
+ $current_user = wp_get_current_user();
 	$et_ptemplate_settings = array();
 	$et_ptemplate_settings = maybe_unserialize( get_post_meta($post->ID,'et_ptemplate_settings',true) );
 	
@@ -11,9 +13,45 @@ Template Name: Login Page (Custom)
 ?>
 
 <?php get_header(); ?>
+<!--
+<script type="text/javascript">
+window.onload = function() {
+  multiSelect = document.getElementById('cimy_uef_9');
+  multiSelect.onchange= countSelected(this,3);
+}
+var selectedOptions = [];
+ function countSelected(select,maxNumber){ 
+   for(var i=0; i<select.length; i++){
+     if(select.options[i].selected && !new RegExp(i,'g').test(selectedOptions.toString())){
+        selectedOptions.push(i); 
+     }
 
+     if(!select.options[i].selected && new RegExp(i,'g').test(selectedOptions.toString())){
+      selectedOptions = selectedOptions.sort(function(a,b){return a-b});  
+       for(var j=0; j<selectedOptions.length; j++){ 
+         if(selectedOptions[j] == i){
+            selectedOptions.splice(j,1);
+         }
+       } 
+     }
+
+     if(selectedOptions.length > maxNumber){
+        alert('You may only choose '+maxNumber+' options!!');
+        select.options[i].selected = false;
+        selectedOptions.pop();
+        document.body.focus();
+     }  
+   }    
+ }
+ 
+</script>
+-->
 <?php get_template_part('includes/breadcrumbs'); ?>
-<?php get_template_part('includes/top_info'); ?>
+<div id="category-name">
+	<div id="category-inner">
+		<h1 class="category-title"><?php echo wp_kses( "My Profile", array( 'span' => array() ) ); ?></h1>
+	</div>
+</div>
 
 <div id="content" class="clearfix<?php if($fullwidth) echo(' fullwidth');?>">
 	<div id="left-area">
@@ -51,8 +89,17 @@ Template Name: Login Page (Custom)
 		</div> <!-- end .entry -->
 	<?php endwhile; endif; ?>
 	</div> 	<!-- end #left-area -->
+	<div id="right-area">
+	    <div id="profile_pic">
+	   
 
-	<?php if (!$fullwidth) get_sidebar(); ?>
+        <p id="user-avatar-display-image"><?php echo user_avatar_get_avatar($current_user->ID, 150); ?></p>
+        <a id="user-avatar-link" class="button-primary thickbox" href="<?php echo admin_url('admin-ajax.php'); ?>?action=user_avatar_add_photo&step=1&uid=<?php echo $current_user->ID; ?>&TB_iframe=true&width=720&height=450" title="<?php _e('Upload and Crop an Image to be Displayed','user-avatar'); ?>" ><?php _e('Update Picture','user-avatar'); ?></a>
+
+	    </div>
+	    <div id="right-area-lower">
+	    </div>
+	</div> <!-- end right-area -->
 </div> <!-- end #content -->
 		
 <?php get_footer(); ?>

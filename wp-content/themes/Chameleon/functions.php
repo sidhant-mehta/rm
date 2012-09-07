@@ -37,6 +37,13 @@ function et_portfoliopt_additional_styles(){ ?>
 	</style>
 <?php }
 
+if(!is_admin()):
+	wp_enqueue_script("thickbox");
+	wp_enqueue_style("thickbox");
+endif;
+
+
+
 function register_main_menus() {
 	register_nav_menus(
 		array(
