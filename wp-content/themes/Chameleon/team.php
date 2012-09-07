@@ -16,10 +16,10 @@
 <div id="content" class="clearfix">
 	<div id="left-area">
 
-        <div id="all_mentors">
-	  <p>Here can be some information on how to use the search function, just like a smalll intraduction </p>
-        </div>
-        
+<p>Here can be some information on how to use the search function, just like a smalll intraduction </p>
+
+<div id="all_mentors">
+	  
         <?php
           $mentor = new Pod('mentor');
           $mentor->findRecords('name ASC');       
@@ -33,23 +33,91 @@
               // set our variables
 
               $mentor_name      = $mentor->get_field('name');
-              $mentor_position  = $mentor->get_field('role');
+              $mentor_role  	= $mentor->get_field('role');
+              $mentor_location = $mentor->get_field('location');
               $mentor_slug      = $mentor->get_field('detail_url');
-
-            ?>
+	      $mentor_pic 	= $mentor->get_field('picture');
+	      $mentor_sector 	= $mentor->get_field('sector');
+	      
+	      //data cleanup
+	      $mentor_pic      = $mentor_pic[0]['guid'];
+	     
+	     ?>
           <div id="mentor">
 	    <div id="mentor-details">
 		<li>
-		      <a href="<?php echo get_permalink(); ?><?php echo $mentor_slug; ?>">
-			<?php echo $mentor_name; ?> - <?php echo $mentor_position; ?>
-		      </a>
+		    <a id="mentor-link" href="<?php echo get_permalink(); ?><?php echo $mentor_slug; ?>">
+			<span id="mentor-name"> <?php echo $mentor_name; ?> </span>
+		    </a>
+		    <br />
+		   
+		   
+		   <table>
+			<thead>
+			  <tr>
+			    <th>Role</th>
+			    <th>Location</th>
+			    <th>Sector(s)</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr>
+			    <td><?php echo $mentor_role; ?></td>
+			  </tr>
+			  <tr>
+			    <td><?php echo $mentor_location; ?></td>
+			  </tr>
+			  <tr>
+			    <td><?php echo $mentor_sector; ?></td>
+			  </tr>
+			  
+			</tbody>
+		    </table>
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   <table>
+		    
+		    <tr>
+			<th class="mentor-information" scope="col"> </th>
+			<th class="mentor-information" scope="col">Location</th>
+			<th class="mentor-information" scope="col"></th>
+		    </tr>
+		    
+		    <tr>
+<!-- 			<th scope="row"></th> -->
+			<td></td>
+			<td> </td>
+			<td> </td>
+		    </tr>
+	
+		    
+		    </table>
+		    <br />
+		    
+		    
+		    <br />
+		    
+		   <br /> 
+			
+			
 		</li>
 	    </div>
            <div id="mentor-pic">
-           
+		  
+		  <?php if( !empty( $mentor_pic ) ) : ?>
+		    <img src="<?php echo $mentor_pic; ?>" style="width:150px;" alt="Photo of <?php echo $mentor_name; ?>" />
+		  <?php endif ?>
            </div>
            </div>
-            <!-- /mentor -->
+    </div>
+    <!-- /mentor -->
             
           <?php endwhile ?>
         <?php endif ?>

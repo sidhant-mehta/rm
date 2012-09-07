@@ -7,6 +7,44 @@ Author: Elegant Themes
 Author URI: http://www.elegantthemes.com
 */
 
+#all_mentors {
+  
+ margin-top: 3em; 
+}
+
+#mentor{
+ border-bottom: 4px solid grey;
+padding: 0 0 1em 1em;
+line-height: 3em; 
+float: left;
+width: 100%;
+}
+
+#mentor-details{
+ float:left; 
+}
+
+#mentor-link {
+ font-size: 2em;
+letter-spacing: 5px; 
+}
+
+#mentor-pic {
+ float:right; 
+}
+
+thead {
+  float: left;   
+}
+
+thead th {
+  display: block;   
+}
+
+tbody {
+  float: right;   
+}
+
 
 #profile-icons {
  float:left;
