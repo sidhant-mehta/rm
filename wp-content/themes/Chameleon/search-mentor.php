@@ -3,7 +3,8 @@
 /* Template Name: search-mentor */
 
  get_header(); ?>
-      <?php get_template_part('includes/breadcrumbs'); ?>
+      <?php 
+	  get_template_part('includes/breadcrumbs'); ?>
       
       <div id="category-name">
 	<div id="category-inner">
@@ -11,8 +12,13 @@
 	</div> <!-- end #category-inner -->
       </div> <!-- end #category-name -->
 
-      
-      
+
+<script type="text/javascript">
+	function applyBut()
+	{
+		alert("<?php echo doChecks(); ?>");
+	}
+</script>      
 <div id="content" class="clearfix">
 	<div id="left-area">
 
@@ -84,7 +90,7 @@
 		  <?php endif ?>
            </div>
            
-           <a href="#" id="apply_but" class="icon-button paper-icon"><span class="et-icon"><span>Apply</span></span></a>
+           <a href="#" onclick="applyBut();" id="apply_but" class="icon-button paper-icon"><span class="et-icon"><span>Apply</span></span></a>
            
            </div>
     

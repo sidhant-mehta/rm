@@ -42,7 +42,36 @@ if(!is_admin()):
 	wp_enqueue_style("thickbox");
 endif;
 
-
+function doChecks()
+{
+	global $current_user;
+	$current_user = wp_get_current_user();
+	
+	$checksOK = false;
+	$errorMessage = "";
+	if (is_user_logged_in())
+	{
+		//check to see if CV is uploaded
+		$CV = get_cimyFieldValue($current_user->ID, 'UPLOADCV');
+		
+		if($CV != "")
+		{
+			$checksOK = true;
+			return $checksOK;
+		}
+		else
+		{	
+			$errorMessage = "Please make sure you have uploaded your C.V. in your Profile page before applying for a mentor.";
+			return $errorMessage;
+		}
+	}
+	else
+	{
+		$errorMessage= "Please make sure you are logged in before applying for a mentor.";
+		return $errorMessage;
+	}
+	
+}
 
 function register_main_menus() {
 	register_nav_menus(
