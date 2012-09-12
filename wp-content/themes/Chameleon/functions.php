@@ -102,9 +102,11 @@ function sendApplication()
 
   session_start(); //start session, later display the javascript value stored in session.  
   echo "hello";
-  echo $_SESSION['emailValues'];
-  echo '<script>alert("'.$_SESSION['emailValues'].'")</script>'; 
-  unset($_SESSION['emailValues']);
+  echo $_SESSION['emailTypeValue'];
+   echo '<script>alert("'.$_SESSION['emailTypeNameValue'].'")</script>'; 
+  echo '<script>alert("'.$_SESSION['emailTypeValue'].'")</script>'; 
+  unset($_SESSION['emailTypeValue']);
+  unset($_SESSION['emailTypeNameValue']);
 
 
 }

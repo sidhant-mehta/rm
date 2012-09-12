@@ -9,15 +9,16 @@
 	      {
 		      values= [];
 		      
-		      valueM = "Mentor"
-		      valueV = butObj.getAttribute("value");
+		      values[0] = "Mentor"
+		      values[1] = butObj.getAttribute("value");
 		      
-		      alert(valueV);
+		      alert(values[1]);
 		      sendToPhp();
 	      };
 	      function sendToPhp()
 	      {
-		$.post("http://localhost/myMentor/ajax/", { str: valueV});
+		$.post("http://localhost/myMentor/ajax/", { emailType: values[0], emailTypeName: values[1] }); // the type of application. (Mentor)
+// 		$.post("http://localhost/myMentor/ajax/", { ); //Name of Mentor
 	      };
 	      
   </script>       
