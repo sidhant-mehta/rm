@@ -5,20 +5,31 @@
  get_header(); ?>
  
  <script type="text/javascript">
-	      function applyBut(butObj)
+
+ 
+	    function applyBut(butObj)
 	      {
+	      
+		    if (confirm('Are you sure you want to apply for ' + butObj.getAttribute("value") + ' as your mentor?' ) )
+		    {
 		      values= [];
-		      
 		      values[0] = "Mentor"
 		      values[1] = butObj.getAttribute("value");
-		      
-		      alert(values[1]);
 		      sendToPhp();
+		     }
 	      };
+	      
 	      function sendToPhp()
 	      {
-		$.post("http://localhost/myMentor/ajax/", { emailType: values[0], emailTypeName: values[1] });
+		$.post("<?php echo get_bloginfo('url'); ?>/?p=79/", { emailType: values[0], emailTypeName: values[1] });
+		openSendingMailWindow();
 	      };
+	      
+	      function openSendingMailWindow() {
+		sendingMailWindow = window.open('<?php echo get_bloginfo('url'); ?>/?p=77/',
+		'open_window',
+		'menubar, toolbar, location, directories, status, scrollbars, resizable, dependent, width=640, height=480, left=0, top=0')
+		}
 	      
   </script>       
       <?php 

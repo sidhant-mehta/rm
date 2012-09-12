@@ -133,8 +133,10 @@ $emailTypeValue="";
 		    } else {
 		    return("<p>Message successfully sent!</p>");
 		    }
-			  
-		  
+	}
+	else
+	{
+	  echo '<script>self.close()</script>'; 	//if there is an error in the checks then close the window.
 	
 	}
 
