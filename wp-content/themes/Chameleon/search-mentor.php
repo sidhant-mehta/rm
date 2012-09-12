@@ -3,6 +3,24 @@
 /* Template Name: search-mentor */
 
  get_header(); ?>
+ 
+ <script type="text/javascript">
+	      function applyBut(butObj)
+	      {
+		      values= [];
+		      
+		      valueM = "Mentor"
+		      valueV = butObj.getAttribute("value");
+		      
+		      alert(valueV);
+		      sendToPhp();
+	      };
+	      function sendToPhp()
+	      {
+		$.post("http://localhost/myMentor/ajax/", { str: valueV});
+	      };
+	      
+  </script>       
       <?php 
 	  get_template_part('includes/breadcrumbs'); ?>
       
@@ -13,12 +31,7 @@
       </div> <!-- end #category-name -->
 
 
-<script type="text/javascript">
-	function applyBut()
-	{
-		alert("<?php echo doChecks(); ?>");
-	}
-</script>      
+    
 <div id="content" class="clearfix">
 	<div id="left-area">
 
@@ -90,14 +103,16 @@
 		  <?php endif ?>
            </div>
            
-           <a href="#" onclick="applyBut();" id="apply_but" class="icon-button paper-icon"><span class="et-icon"><span>Apply</span></span></a>
+           <a href="#" value="<?php echo $mentor_name?>" onclick="applyBut(this);" id="apply_but" class="icon-button paper-icon"><span class="et-icon"><span>Apply</span></span></a>
            
            </div>
+           
     
     <!-- /mentor -->
             
           <?php endwhile ?>
         <?php endif ?>
+        
 </div>
         </div>
     </div>

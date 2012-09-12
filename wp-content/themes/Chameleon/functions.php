@@ -42,6 +42,21 @@ if(!is_admin()):
 	wp_enqueue_style("thickbox");
 endif;
 
+
+add_action('init', 'myStartSession', 1);
+add_action('wp_logout', 'myEndSession');
+add_action('wp_login', 'myEndSession');
+
+function myStartSession() {
+    if(!session_id()) {
+        session_start();
+    }
+}
+
+function myEndSession() {
+    session_destroy ();
+}
+
 function doChecks()
 {
 	global $current_user;
@@ -68,6 +83,32 @@ function doChecks()
 	}
 	
 }
+
+function sendApplication()
+{
+
+// 	if (doChecks())	{
+// 		 $userName = get_cimyFieldValue($current_user->ID, 'FIRSTNAME')." ".get_cimyFieldValue($current_user->ID, 'LASTNAME');
+// 		
+// 		 $to = "sidhant_mehta@yahoo.com";
+// 		 $subject = entryName."- Application by".$userName;
+// 		 $body = $userName." has made an application for a ". $entryType;
+// 		 if (mail($to, $subject, $body)) {
+// 		   return "Message successfully sent!";
+// 		  } else {
+// 		   return "Message delivery failed!";
+// 		  }
+// 	}
+
+  session_start(); //start session, later display the javascript value stored in session.  
+  echo "hello";
+  echo $_SESSION['emailValues'];
+  echo '<script>alert("'.$_SESSION['emailValues'].'")</script>'; 
+  unset($_SESSION['emailValues']);
+
+
+}
+
 
 function register_main_menus() {
 	register_nav_menus(
