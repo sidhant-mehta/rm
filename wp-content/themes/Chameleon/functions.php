@@ -62,14 +62,12 @@ function doChecks()
 	global $current_user;
 	$current_user = wp_get_current_user();
 	
-	$checksOK = false;
 	$errorMessage = "";
 	$CV = get_cimyFieldValue($current_user->ID, 'UPLOADCV');
-	
+
 	if (is_user_logged_in() && $CV != "")
 	{
-			$checksOK = true;
-			return $checksOK;
+			return true; //checks ok
 	}
 	else
 	{
@@ -79,7 +77,9 @@ function doChecks()
 		else if (!is_user_logged_in())
 			$errorMessage= "Please make sure you are logged in before applying for a mentor.";
 		
-		return $errorMessage;
+		  echo '<script>alert("'.$errorMessage.'")</script>'; 		
+		
+		return false; //error
 	}
 	
 }
@@ -87,26 +87,58 @@ function doChecks()
 function sendApplication()
 {
 
-// 	if (doChecks())	{
-// 		 $userName = get_cimyFieldValue($current_user->ID, 'FIRSTNAME')." ".get_cimyFieldValue($current_user->ID, 'LASTNAME');
-// 		
-// 		 $to = "sidhant_mehta@yahoo.com";
-// 		 $subject = entryName."- Application by".$userName;
-// 		 $body = $userName." has made an application for a ". $entryType;
-// 		 if (mail($to, $subject, $body)) {
-// 		   return "Message successfully sent!";
-// 		  } else {
-// 		   return "Message delivery failed!";
-// 		  }
-// 	}
 
-  session_start(); //start session, later display the javascript value stored in session.  
-  echo "hello";
-  echo $_SESSION['emailTypeValue'];
-   echo '<script>alert("'.$_SESSION['emailTypeNameValue'].'")</script>'; 
-  echo '<script>alert("'.$_SESSION['emailTypeValue'].'")</script>'; 
-  unset($_SESSION['emailTypeValue']);
-  unset($_SESSION['emailTypeNameValue']);
+global $current_user;
+$current_user = wp_get_current_user();
+
+$emailTypeNameValue =""; 
+$emailTypeValue="";
+
+	if (doChecks())	{
+	
+		  session_start(); //start session, later display the javascript value stored in session.  
+		  $emailTypeNameValue = $_SESSION['emailTypeNameValue'];
+		  $emailTypeValue = $_SESSION['emailTypeValue'];
+		  
+		  unset($_SESSION['emailTypeValue']); 
+		  unset($_SESSION['emailTypeNameValue']);
+	
+	
+		 $userName = $current_user->user_firstname." ".$current_user->user_lastname; 
+      
+		 require_once "Mail.php";
+ 
+		  $from = "Raison Mentors <sidhant_mehta@yahoo.com>"; //CHANGE THESE ACCORDINGLY
+		  $to = "Sidhant <sidhant_mehta@yahoo.com>";//CHANGE THESE ACCORDINGLY
+		  $subject = "Application for: ".$emailTypeNameValue." - Application by:".$userName;
+		  $body = $userName." has made an application for a ". $emailTypeValue;
+		  
+		  $host = "mail.example.com"; //CHANGE THESE ACCORDINGLY
+		  $username = "smtp_username"; //CHANGE THESE ACCORDINGLY
+		  $password = "smtp_password";//CHANGE THESE ACCORDINGLY
+		  
+		  $headers = array ('From' => $from,
+		    'To' => $to,
+		    'Subject' => $subject);
+		  $smtp = Mail::factory('smtp',
+		    array ('host' => $host,
+		      'auth' => true,
+		      'username' => $username,
+		      'password' => $password));
+		  
+		  $mail = $smtp->send($to, $headers, $body);
+		  
+		  if (PEAR::isError($mail)) {
+		    return("<p>" . $mail->getMessage() . "</p>");
+		    } else {
+		    return("<p>Message successfully sent!</p>");
+		    }
+			  
+		  
+	
+	}
+
+
 
 
 }

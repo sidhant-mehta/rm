@@ -1,16 +1,17 @@
  <?php
 
-/* Template Name: temp */
+/* Template Name: send-email */
 ?>
 
   <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
   <html xmlns="http://www.w3.org/1999/xhtml">  
   <head>  
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
-  <title>Sample PHP Page</title>  
+  <title>Sending Application</title>  
   </head>  
     
   <body>  
-  This is a PHP Page. The javascript value is....: <?php sendApplication(); ?>  
+  Your application is being sent to our HR Team. <br />
+  Status: <?php echo sendApplication(); ?>  
   </body>  
   </html> 
