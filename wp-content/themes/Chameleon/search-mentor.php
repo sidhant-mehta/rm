@@ -56,6 +56,8 @@
           $total_mentors = $mentor->getTotalRows();
         ?>
         
+        <?php echo $mentor->getFilters(null, 'Apply Filters'); ?>
+        
         <?php if( $total_mentors>0 ) : ?>
           <?php while ( $mentor->fetchRecord() ) : ?>
             
