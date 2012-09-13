@@ -13,5 +13,7 @@
   <body>  
   Your application is being sent to our HR Team. <br />
   Status: <?php echo sendApplication(); ?>  
+  <br />
+  You may now close this window. 
   </body>  
   </html> 

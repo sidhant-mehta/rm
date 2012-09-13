@@ -97,6 +97,7 @@ $emailTypeValue="";
 	if (doChecks())	{
 	
 		  session_start(); //start session, later display the javascript value stored in session.  
+		  	  
 		  $emailTypeNameValue = $_SESSION['emailTypeNameValue'];
 		  $emailTypeValue = $_SESSION['emailTypeValue'];
 		  
@@ -113,9 +114,14 @@ $emailTypeValue="";
 		  $subject = "Application for: ".$emailTypeNameValue." - Application by:".$userName;
 		  $body = $userName." has made an application for a ". $emailTypeValue;
 		  
-		  $host = "mail.example.com"; //CHANGE THESE ACCORDINGLY
-		  $username = "smtp_username"; //CHANGE THESE ACCORDINGLY
-		  $password = "smtp_password";//CHANGE THESE ACCORDINGLY
+// 		  $host = "mail.example.com"; //CHANGE THESE ACCORDINGLY
+// 		  $username = "smtp_username"; //CHANGE THESE ACCORDINGLY
+// 		  $password = "smtp_password";//CHANGE THESE ACCORDINGLY
+
+
+$host = "smtp.mail.yahoo.com";
+		  $username = "sidhant_mehta@yahoo.com";
+		  $password = "Cricket19";
 		  
 		  $headers = array ('From' => $from,
 		    'To' => $to,

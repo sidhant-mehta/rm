@@ -21,7 +21,7 @@
 	      
 	      function sendToPhp()
 	      {
-		$.post("<?php echo get_bloginfo('url'); ?>/?p=79/", { emailType: values[0], emailTypeName: values[1] });
+		$.post("<?php echo get_bloginfo('url'); ?>/ajax/", { emailType: values[0], emailTypeName: values[1] });
 		openSendingMailWindow();
 	      };
 	      
