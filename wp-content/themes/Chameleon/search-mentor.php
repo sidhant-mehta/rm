@@ -54,10 +54,15 @@
           $mentor = new Pod('mentor');
           $mentor->findRecords('name ASC');       
           $total_mentors = $mentor->getTotalRows();
-        ?>
-        
-        <?php echo $mentor->getFilters(null, 'Apply Filters'); ?>
-        
+	  
+
+
+echo $mentor->getFilters('sector', 'Search this list:');
+
+	  ?>
+ 
+       
+      
         <?php if( $total_mentors>0 ) : ?>
           <?php while ( $mentor->fetchRecord() ) : ?>
             
@@ -100,7 +105,13 @@
 			    <td><?php echo $mentor_location; ?></td>
 			  </tr>
 			  <tr>
-			    <td><?php echo $mentor_sector; ?></td>
+			    <td><?php 
+				for ($i=0; $i< sizeof($mentor_sector); $i++)
+				{
+				 echo  $mentor_sector[$i]['name']. "<br />";
+				}
+				
+				?></td>
 			  </tr>
 			  
 			</tbody>
