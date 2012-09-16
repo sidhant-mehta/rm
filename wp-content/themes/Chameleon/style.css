@@ -7,6 +7,16 @@ Author: Elegant Themes
 Author URI: http://www.elegantthemes.com
 */
 
+#tb_mentorDescription {
+margin-top: 3em;
+}
+
+p#et-search-title{
+  
+  margin-bottom:0; 
+}
+
+
 #all_mentors {
   
  margin-top: 3em; 
@@ -101,6 +111,14 @@ padding: 0 2px;
 margin-top: 5em;
 margin-bottom: -4em;
 
+}
+
+#tb_closingDate {
+ margin-top: 3em; 
+}
+
+#tb_closingDate tr {
+ display: inline-block;
 }
 
 /*MY THEME LOGIN */

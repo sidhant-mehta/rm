@@ -106,22 +106,20 @@ $emailTypeValue="";
 	
 	
 		 $userName = $current_user->user_firstname." ".$current_user->user_lastname; 
-      
+		 $CV = get_cimyFieldValue($current_user->ID, 'UPLOADCV');
+		 
 		 require_once "Mail.php";
  
 		  $from = "Raison Mentors <sidhant_mehta@yahoo.com>"; //CHANGE THESE ACCORDINGLY
 		  $to = "Sidhant <sidhant_mehta@yahoo.com>";//CHANGE THESE ACCORDINGLY
 		  $subject = "Application for: ".$emailTypeNameValue." - Application by:".$userName;
-		  $body = $userName." has made an application for a ". $emailTypeValue;
-		  
-// 		  $host = "mail.example.com"; //CHANGE THESE ACCORDINGLY
-// 		  $username = "smtp_username"; //CHANGE THESE ACCORDINGLY
-// 		  $password = "smtp_password";//CHANGE THESE ACCORDINGLY
+		  $body = $userName." has made an application for a ". $emailTypeValue. "\n\n Link to CV:". $CV;
+		
+		 $host = "mail.example.com"; //CHANGE THESE ACCORDINGLY
+		$username = "smtp_username"; //CHANGE THESE ACCORDINGLY
+	
+		$password = "smtp_password";//CHANGE THESE ACCORDINGLY
 
-
-$host = "smtp.mail.yahoo.com";
-		  $username = "sidhant_mehta@yahoo.com";
-		  $password = "Cricket19";
 		  
 		  $headers = array ('From' => $from,
 		    'To' => $to,

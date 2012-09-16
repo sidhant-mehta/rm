@@ -2,7 +2,8 @@
 
 /* Template Name: search-mentor */
 
- get_header(); ?>
+ get_header(); 
+ ?>
  
  <script type="text/javascript">
 
@@ -54,12 +55,15 @@
           $mentor = new Pod('mentor');
           $mentor->findRecords('name ASC');       
           $total_mentors = $mentor->getTotalRows();
-	  
-
-
-echo $mentor->getFilters('sector', 'Search this list:');
-
 	  ?>
+
+      <div id="et-search">
+	<div id="et-search-inner" class="clearfix">
+	<p style="margin-bottom: 0;" id="et-search-title"><span><?php esc_html_e('search for a mentor','Chameleon'); ?></span></p>
+	  <?php echo $mentor->getFilters('sector, location', 'Search'); ?>
+	</div>
+    </div>
+	  
  
        
       
@@ -75,6 +79,7 @@ echo $mentor->getFilters('sector', 'Search this list:');
               $mentor_slug      = $mentor->get_field('detail_url');
 	      $mentor_pic 	= $mentor->get_field('picture');
 	      $mentor_sector 	= $mentor->get_field('sector');
+	      $mentor_closingDate =$mentor->get_field('closingdate');
 	      
 	      //data cleanup
 	      $mentor_pic      = $mentor_pic[0]['guid'];
@@ -102,7 +107,9 @@ echo $mentor->getFilters('sector', 'Search this list:');
 			    <td><?php echo $mentor_role; ?></td>
 			  </tr>
 			  <tr>
-			    <td><?php echo $mentor_location; ?></td>
+			    <td><?php 
+			    echo  $mentor_location[0]['name'];
+			    //echo $mentor_location; ?></td>
 			  </tr>
 			  <tr>
 			    <td><?php 
@@ -112,11 +119,23 @@ echo $mentor->getFilters('sector', 'Search this list:');
 				}
 				
 				?></td>
-			  </tr>
-			  
+			  </tr>			  
 			</tbody>
 		    </table>
-			
+		    
+		    <table id="tb_closingDate">
+		      <thead>
+			<tr>
+			  <th>Closing Date</th>
+			</tr>
+		      </thead>
+		      
+		      <tbody>
+			<tr>
+			      <td> <?php echo $mentor_closingDate; ?> </td>
+			</tr>
+		      </tbody>
+		    </table>  
 		 
 		
 	    </div>
