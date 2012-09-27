@@ -43,6 +43,112 @@ if(!is_admin()):
 endif;
 
 
+add_action('init', 'myStartSession', 1);
+add_action('wp_logout', 'myEndSession');
+add_action('wp_login', 'myEndSession');
+
+function myStartSession() {
+    if(!session_id()) {
+        session_start();
+    }
+}
+
+function myEndSession() {
+    session_destroy ();
+}
+
+function doChecks()
+{
+	global $current_user;
+	$current_user = wp_get_current_user();
+	
+	$errorMessage = "";
+	$CV = get_cimyFieldValue($current_user->ID, 'UPLOADCV');
+
+	if (is_user_logged_in() && $CV != "")
+	{
+			return true; //checks ok
+	}
+	else
+	{
+		
+		if ($CV == "") 
+			$errorMessage = "Please make sure you have uploaded your C.V. in your Profile page before applying for a mentor.";
+		else if (!is_user_logged_in())
+			$errorMessage= "Please make sure you are logged in before applying for a mentor.";
+		
+		  echo '<script>alert("'.$errorMessage.'")</script>'; 		
+		
+		return false; //error
+	}
+	
+}
+
+function sendApplication()
+{
+
+
+global $current_user;
+$current_user = wp_get_current_user();
+
+$emailTypeNameValue =""; 
+$emailTypeValue="";
+
+	if (doChecks())	{
+	
+		  session_start(); //start session, later display the javascript value stored in session.  
+		  	  
+		  $emailTypeNameValue = $_SESSION['emailTypeNameValue'];
+		  $emailTypeValue = $_SESSION['emailTypeValue'];
+		  
+		  unset($_SESSION['emailTypeValue']); 
+		  unset($_SESSION['emailTypeNameValue']);
+	
+	
+		 $userName = $current_user->user_firstname." ".$current_user->user_lastname; 
+		 $CV = get_cimyFieldValue($current_user->ID, 'UPLOADCV');
+		 
+		 require_once "Mail.php";
+ 
+		  $from = "Raison Mentors <sidhant_mehta@yahoo.com>"; //CHANGE THESE ACCORDINGLY
+		  $to = "Sidhant <sidhant_mehta@yahoo.com>";//CHANGE THESE ACCORDINGLY
+		  $subject = "Application for: ".$emailTypeNameValue." - Application by:".$userName;
+		  $body = $userName." has made an application for a ". $emailTypeValue. "\n\n Link to CV:". $CV;
+		
+		 $host = "mail.example.com"; //CHANGE THESE ACCORDINGLY
+		$username = "smtp_username"; //CHANGE THESE ACCORDINGLY
+	
+		$password = "smtp_password";//CHANGE THESE ACCORDINGLY
+
+		  
+		  $headers = array ('From' => $from,
+		    'To' => $to,
+		    'Subject' => $subject);
+		  $smtp = Mail::factory('smtp',
+		    array ('host' => $host,
+		      'auth' => true,
+		      'username' => $username,
+		      'password' => $password));
+		  
+		  $mail = $smtp->send($to, $headers, $body);
+		  
+		  if (PEAR::isError($mail)) {
+		    return("<p>" . $mail->getMessage() . "</p>");
+		    } else {
+		    return("<p>Message successfully sent!</p>");
+		    }
+	}
+	else
+	{
+	  echo '<script>self.close()</script>'; 	//if there is an error in the checks then close the window.
+	
+	}
+
+
+
+
+}
+
 
 function register_main_menus() {
 	register_nav_menus(

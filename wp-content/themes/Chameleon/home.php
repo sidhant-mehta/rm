@@ -83,6 +83,11 @@
 							$media_open = false;
 							$et_videos_output = '';
 						?>
+						<!-- The search will be of the pods Mentor DB. 
+						give the variables below the results from the search. 
+						title: mentor name
+						thumbnail: the url. or below change the code line 118 to take just the url. then have css change the dimensions.
+						
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 							<?php 
 								$width = 48;
