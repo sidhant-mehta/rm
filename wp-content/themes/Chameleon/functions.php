@@ -113,12 +113,12 @@ $emailTypeValue="";
 		  $from = "Raison Mentors <sidhant_mehta@yahoo.com>"; //CHANGE THESE ACCORDINGLY
 		  $to = "Sidhant <sidhant_mehta@yahoo.com>";//CHANGE THESE ACCORDINGLY
 		  $subject = "Application for: ".$emailTypeNameValue." - Application by:".$userName;
-		  $body = $userName." has made an application for a ". $emailTypeValue. "\n\n Link to CV:". $CV;
+		  $body = $userName." has made an application for a ". $emailTypeValue. "\n\n Link to CV:". $CV . "\n\n Details about ".$emailTypeNameValue."\n\n";
 		
-		 $host = "mail.example.com"; //CHANGE THESE ACCORDINGLY
-		$username = "smtp_username"; //CHANGE THESE ACCORDINGLY
+		 $host = ""; //CHANGE THESE ACCORDINGLY
+		$username = ""; //CHANGE THESE ACCORDINGLY
 	
-		$password = "smtp_password";//CHANGE THESE ACCORDINGLY
+		$password = "";//CHANGE THESE ACCORDINGLY
 
 		  
 		  $headers = array ('From' => $from,
@@ -133,7 +133,7 @@ $emailTypeValue="";
 		  $mail = $smtp->send($to, $headers, $body);
 		  
 		  if (PEAR::isError($mail)) {
-		    return("<p>" . $mail->getMessage() . "</p>");
+		    return("<p>There was an error in sending your request. We are working to fix this issue as soon as possible. Please try again later.</p>"); //$mail->getMessage()
 		    } else {
 		    return("<p>Message successfully sent!</p>");
 		    }
