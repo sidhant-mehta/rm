@@ -1,13 +1,8 @@
 /*
 Theme Name: Chameleon
-Theme URI: http://www.elegantthemes.com/gallery/
-Version: 2.7
-Description: 2 Column theme from Elegant Themes
-Author: Elegant Themes
-Author URI: http://www.elegantthemes.com
 */
 
-#tb_mentorDescription {
+#tb_mentorDescription, #tb_projectDescription {
 margin-top: 3em;
 }
 
@@ -17,12 +12,12 @@ p#et-search-title{
 }
 
 
-#all_mentors {
+#all_mentors, #all_projects {
   
  margin-top: 3em; 
 }
 
-#mentor{
+#mentor, #project{
  border-bottom: 4px solid grey;
 padding: 0 0 1em 1em;
 line-height: 3em; 
@@ -32,16 +27,16 @@ margin-top: 1em;
 
 }
 
-#mentor-details{
+#mentor-details,#project-details{
  float:left; 
 }
 
-#mentor-link {
+#mentor-link, #project-link {
  font-size: 2em;
 letter-spacing: 5px; 
 }
 
-#mentor-pic {
+#mentor-pic, #project-pic {
   margin-top: 2em;
   float:right; 
 }
