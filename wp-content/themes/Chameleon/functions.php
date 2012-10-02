@@ -100,13 +100,29 @@ $emailTypeValue="";
 		  	  
 		  $emailTypeNameValue = $_SESSION['emailTypeNameValue'];
 		  $emailTypeValue = $_SESSION['emailTypeValue'];
+		  $emailTypeIdValue = $_SESSION['emailTypeIdValue'];
 		  
 		  unset($_SESSION['emailTypeValue']); 
 		  unset($_SESSION['emailTypeNameValue']);
+		  unset($_SESSION['emailTypeIdValue']);
 	
 	
 		 $userName = $current_user->user_firstname." ".$current_user->user_lastname; 
 		 $CV = get_cimyFieldValue($current_user->ID, 'UPLOADCV');
+		 $pods = new Pod( strtolower($emailTypeValue), $emailTypeIdValue );
+		 
+		 if (!empty($pods->data) )
+		 {
+		      if (strtolower($emailTypeValue) == "mentor")
+		      {
+			  $values = array( "Roler: ".$pods->get_field('role'),"Organisation: ".$pods -> get_field('organisation'), "Closing Date: ".$pods->get_field('closingdate'));
+			  
+		      }
+		       if (strtolower($emailTypeValue) == "project")
+		       {		
+			    $values = array( "Project Leader: ".$pods->get_field('projectleader'),"Organisation: ".$pods -> get_field('organisation'), "Closing Date: ".$pods->get_field('closingdate'));
+			}
+		 }
 		 
 		 require_once "Mail.php";
  
@@ -114,11 +130,16 @@ $emailTypeValue="";
 		  $to = "Sidhant <sidhant_mehta@yahoo.com>";//CHANGE THESE ACCORDINGLY
 		  $subject = "Application for: ".$emailTypeNameValue." - Application by:".$userName;
 		  $body = $userName." has made an application for a ". $emailTypeValue. "\n\n Link to CV:". $CV . "\n\n Details about ".$emailTypeNameValue."\n\n";
+		  
+		  for ($i=0; $i<sizeof($values); $i++)
+		  {
+		      $body .= $values[$i]."\n";
+		  }
 		
-		 $host = ""; //CHANGE THESE ACCORDINGLY
-		$username = ""; //CHANGE THESE ACCORDINGLY
+		 $host = "smtp.mail.yahoo.com"; //CHANGE THESE ACCORDINGLY
+		$username = "sidhant_mehta@yahoo.com"; //CHANGE THESE ACCORDINGLY
 	
-		$password = "";//CHANGE THESE ACCORDINGLY
+		$password = "Cricket19";//CHANGE THESE ACCORDINGLY
 
 		  
 		  $headers = array ('From' => $from,

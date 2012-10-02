@@ -6,7 +6,7 @@ get_header(); ?>
  <script type="text/javascript">
 
  
-	    function applyBut(butObj)
+	  function applyBut(butObj)
 	      {
 	      
 		    if (confirm('Are you sure you want to apply for ' + butObj.getAttribute("value") + ' as your project?' ) )
@@ -14,13 +14,14 @@ get_header(); ?>
 		      values= [];
 		      values[0] = "Project"
 		      values[1] = butObj.getAttribute("value");
+		      values[2] = butObj.getAttribute("data-id");
 		      sendToPhp();
 		     }
 	      };
 	      
 	      function sendToPhp()
 	      {
-		$.post("<?php echo get_bloginfo('url'); ?>/ajax/", { emailType: values[0], emailTypeName: values[1] });
+		$.post("<?php echo get_bloginfo('url'); ?>/ajax/", { emailType: values[0], emailTypeName: values[1], emailTypeID: values[2] });
 		openSendingMailWindow();
 	      };
 	      
@@ -44,7 +45,7 @@ get_header(); ?>
       $found_project = true;
 
       // set our variables
-
+	    $id =		$project->get_field('id');
               $project_name      = $project->get_field('name');
               $project_leader  	= $project->get_field('projectleader');
               $project_slug      = $project->get_field('detail_url');
@@ -157,7 +158,7 @@ get_header(); ?>
 					</tbody>
 				      </table>
         </div>
-	<a href="#" value="<?php echo $project_name?>" onclick="applyBut(this);" id="apply_but" class="icon-button paper-icon"><span class="et-icon"><span>Apply</span></span></a>
+	<a href="#" data-id="<?hp echo $id;?>" value="<?php echo $project_name?>" onclick="applyBut(this);" id="apply_but" class="icon-button paper-icon"><span class="et-icon"><span>Apply</span></span></a>
       </div>
 
     <?php else: ?>
@@ -171,7 +172,8 @@ get_header(); ?>
 	
     <?php endif ?>
   
-    </div> <!-- end of left area-->
+    </div> 
+    <!-- end of left area-->
 
 <?php get_sidebar(); ?>
 </div> <!-- end of content-->

@@ -6,23 +6,22 @@
  ?>
  
  <script type="text/javascript">
-
- 
-	    function applyBut(butObj)
+ 	      function applyBut(butObj)
 	      {
 	      
-		    if (confirm('Are you sure you want to apply for ' + butObj.getAttribute("value") + ' as your mentor?' ) )
+		    if (confirm('Are you sure you want to apply for ' + butObj.getAttribute("value") + ' as your project?' ) )
 		    {
 		      values= [];
 		      values[0] = "Mentor"
 		      values[1] = butObj.getAttribute("value");
+		      values[2] = butObj.getAttribute("data-id");
 		      sendToPhp();
 		     }
 	      };
 	      
 	      function sendToPhp()
 	      {
-		$.post("<?php echo get_bloginfo('url'); ?>/ajax/", { emailType: values[0], emailTypeName: values[1] });
+		$.post("<?php echo get_bloginfo('url'); ?>/ajax/", { emailType: values[0], emailTypeName: values[1], emailTypeID: values[2] });
 		openSendingMailWindow();
 	      };
 	      
@@ -31,8 +30,8 @@
 		'open_window',
 		'menubar, toolbar, location, directories, status, scrollbars, resizable, dependent, width=640, height=480, left=0, top=0')
 		}
-	      
-  </script>       
+ 
+ </script>       
       <?php 
 	  get_template_part('includes/breadcrumbs'); ?>
       
@@ -72,7 +71,7 @@
             
             <?php
               // set our variables
-
+	      $id =		$mentor->get_field('id');
               $mentor_name      = $mentor->get_field('name');
               $mentor_role  	= $mentor->get_field('role');
               $mentor_location = $mentor->get_field('location');
@@ -146,7 +145,7 @@
 		  <?php endif ?>
            </div>
            
-           <a href="#" value="<?php echo $mentor_name?>" onclick="applyBut(this);" id="apply_but" class="icon-button paper-icon"><span class="et-icon"><span>Apply</span></span></a>
+           <a href="#" data-id="<?php echo $id;?>" value="<?php echo $mentor_name?>" onclick="applyBut(this);" id="apply_but" class="icon-button paper-icon"><span class="et-icon"><span>Apply</span></span></a>
            
            </div>
            

@@ -9,6 +9,7 @@ session_start(); //start PHP Session
 
 $_SESSION['emailTypeValue'] = $_POST['emailType']; //store type of application - Mentor or Project
 $_SESSION['emailTypeNameValue'] = $_POST['emailTypeName']; //store name of applicatoin. - Name of Mentor or Name of Project
+$_SESSION['emailTypeIdValue'] = $_POST['emailTypeID']; //store ID of application. ID of Mentor or Project
 
 ?>
 
