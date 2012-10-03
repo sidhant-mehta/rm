@@ -109,6 +109,7 @@ $emailTypeValue="";
 	
 		 $userName = $current_user->user_firstname." ".$current_user->user_lastname; 
 		 $CV = get_cimyFieldValue($current_user->ID, 'UPLOADCV');
+		 $userEmailAddress = $current_user->user_email;
 		 $pods = new Pod( strtolower($emailTypeValue), $emailTypeIdValue );
 		 
 		 if (!empty($pods->data) )
@@ -126,8 +127,8 @@ $emailTypeValue="";
 		 
 		 require_once "Mail.php";
  
-		  $from = "Raison Mentors <sidhant_mehta@yahoo.com>"; //CHANGE THESE ACCORDINGLY
-		  $to = "Sidhant <sidhant_mehta@yahoo.com>";//CHANGE THESE ACCORDINGLY
+		  $from = "Raison Mentors <>"; //CHANGE THESE ACCORDINGLY
+		  $to = $userName ."<". $userEmailAddress .">";//CHANGE THESE ACCORDINGLY
 		  $subject = "Application for: ".$emailTypeNameValue." - Application by:".$userName;
 		  $body = $userName." has made an application for a ". $emailTypeValue. "\n\n Link to CV:". $CV . "\n\n Details about ".$emailTypeNameValue."\n\n";
 		  
@@ -136,10 +137,9 @@ $emailTypeValue="";
 		      $body .= $values[$i]."\n";
 		  }
 		
-		 $host = "smtp.mail.yahoo.com"; //CHANGE THESE ACCORDINGLY
-		$username = "sidhant_mehta@yahoo.com"; //CHANGE THESE ACCORDINGLY
-	
-		$password = "Cricket19";//CHANGE THESE ACCORDINGLY
+		$host = ""; //CHANGE THESE ACCORDINGLY
+		$username = ""; //CHANGE THESE ACCORDINGLY
+		$password = "";//CHANGE THESE ACCORDINGLY
 
 		  
 		  $headers = array ('From' => $from,

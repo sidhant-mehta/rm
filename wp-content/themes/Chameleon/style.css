@@ -2,6 +2,11 @@
 Theme Name: Chameleon
 */
 
+#intro{
+  
+  margin-top: 2em;
+}
+
 #tb_mentorDescription, #tb_projectDescription {
 margin-top: 3em;
 }
@@ -115,6 +120,8 @@ margin-bottom: -4em;
 #tb_closingDate tr {
  display: inline-block;
 }
+
+
 
 /*MY THEME LOGIN */
 .login input {
@@ -270,7 +277,7 @@ img#about-image { float: left; margin: 3px 8px 8px 0px; }
 		#category-inner { background: url(images/bottom-category-bg.png) no-repeat bottom left; padding-bottom: 28px; }
 			h1.category-title { color: #1d1d1d; font-size:28px; font-family: 'Kreon', Arial, sans-serif; font-weight: lighter; }
 			p.description { /*color: #929292; */ font-size:1em; /*font-family: 'Kreon', Arial, sans-serif; font-weight: lighter; */ padding-bottom: 0px; }
-		#content { padding: 0px 48px 60px; background: url(images/content-bg.png) repeat-y 633px 0px; }
+		#content { padding: 0px 48px 60px; background: url(images/content-bg.png) repeat-y 645px 0px; }
 		.fullwidth { background: none !important; }
 			#left-area { width: 586px; float:left; }
 			.fullwidth #left-area { width: 100%; }

@@ -46,7 +46,7 @@
 <div id="content" class="clearfix">
 	<div id="left-area">
 
-<p>Here can be some information on how to use the search function, just like a smalll intraduction </p>
+<p id="intro">Please use our search facility below to find a project that meets your requirements.</p>
 
 <div id="all_projects">
 	  
