@@ -85,7 +85,8 @@ get_header(); ?>
          <table>
 			      <thead>
 				<tr>
-				  <th>Role</th>
+				  <th>Project Leader</th>
+				  <th>Organisation</th>
 				  <th>Location</th>
 				  <th>Sector(s)</th>
 				</tr>
@@ -93,7 +94,12 @@ get_header(); ?>
 			      <tbody>
 				<tr>
 				  <td>
-				    <?php echo $project_role; ?>
+				    <?php echo $project_leader; ?>
+				    </td>
+				  </tr>
+				  <tr>
+				  <td>
+				    <?php echo $project_organisation; ?>
 				    </td>
 				  </tr>
 				  <tr>
