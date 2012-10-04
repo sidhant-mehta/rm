@@ -90,7 +90,7 @@
 						      $mentorName = $mentorPod->get_field('name');
 						      $mentorPicURL = $mentorPod->get_field('picture');
 						      $mentorOrganisation = $mentorPod -> get_field('organisation');
-						      
+						      $mentorSlug      = $mentorPod->get_field('detail_url');
 						      //data cleanup
 						      $mentorPicURL = $mentorPicURL[0]['guid'];
 						      
@@ -105,8 +105,7 @@
 							{
 							?>
 							<div class="thumb">
-																												<a href="<?php echo $mentorPicURL; ?>" rel="media" class="fancybox" 
-								    title="<?php echo $mentorName; ?>">
+																												<a href="<?php echo $mentorSlug; ?>" title="<?php echo $mentorName; ?>">
 																												<img src="<?php echo $mentorPicURL; ?>" class="multi-media-image" alt="Mentor 1"  style="opacity: 1; ">					
 								<span class="more" style="opacity: 0; display: inline; "></span>
 											</a>
@@ -163,7 +162,7 @@
 						      $projectName = $projectPod->get_field('name');
 						      $projectPicURL = $projectPod->get_field('picture');
 						      $projectOrganisation = $projectPod -> get_field('organisation');
-						      
+						      $projectSlug      = $projectPod->get_field('detail_url');
 						      //data cleanup
 						      $projectPicURL = $projectPicURL[0]['guid'];
 						      
@@ -178,8 +177,7 @@
 							{
 							?>
 							<div class="thumb">
-																												<a href="<?php echo $projectPicURL; ?>" rel="media" class="fancybox" 
-								    title="<?php echo $projectName; ?>">
+																												<a href="<?php echo $projectSlug; ?>" title="<?php echo $projectName; ?>">
 																												<img src="<?php echo $projectPicURL; ?>" class="multi-media-image" alt="project 1"  style="opacity: 1; ">					
 								<span class="more" style="opacity: 0; display: inline; "></span>
 											</a>
