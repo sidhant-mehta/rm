@@ -74,21 +74,10 @@
 					<a id="right-multi-media" href="#"<?php esc_html_e('Next','Chameleon'); ?>></a>
 					<div id="media-slides">
 						<?php 
-							$args=array(
-								'showposts' => (int) get_option('chameleon_posts_media'),
-								'category__not_in' => (array) get_option('chameleon_exlcats_media')
-							);
-							query_posts($args);
 							$media_current_post = 1;
 							$media_open = false;
-							$et_videos_output = '';
+							
 						?>
-						
-						
-						<!-- The search will be of the pods Mentor DB. 
-						give the variables below the results from the search. 
-						title: mentor name
-						thumbnail: the url. or below change the code line 118 to take just the url. then have css change the dimensions. !-->
 						<?php
 						$mentorPod = new Pod('mentor');
 						$mentorPod -> findRecords('name ASC');
@@ -111,12 +100,15 @@
 							<?php if ( $media_current_post == 1 || ($media_current_post - 1) % 4 == 0 ) { 
 								$media_open = true; ?>
 								<div class="media-slide">
-							<?php } ?>
+							<?php } 
+							if ($mentorPicURL != '') // if there is no picture for it then it will not show in the media bar.
+							{
+							?>
 							<div class="thumb">
 																												<a href="<?php echo $mentorPicURL; ?>" rel="media" class="fancybox" 
 								    title="<?php echo $mentorName; ?>">
 																												<img src="<?php echo $mentorPicURL; ?>" class="multi-media-image" alt="Mentor 1"  style="opacity: 1; ">					
-																												<span class="more" style="opacity: 0; display: inline; "></span>
+								<span class="more" style="opacity: 0; display: inline; "></span>
 											</a>
 										<div class="media-description" style="display: block; opacity: 0; bottom: 63px; ">
 											<p><?php echo "<b>".$mentorName ."</b><br />".$mentorOrganisation; ?></p>
@@ -130,6 +122,7 @@
 							<?php } ?>
 
 							<?php $media_current_post++;?>
+						    <? }?>
 						    <?php endwhile ?>
 						  <?php endif ?>
 						
@@ -139,14 +132,84 @@
 					</div> <!-- end #media-slides -->
 				</div> <!-- end #et-multi-media -->
 			</div> <!-- end #multi-media-bar -->
+			<!-- Mentor Media Bar END -->
 			
-			
-			
-			<?php if ( '' != $et_videos_output ) echo '<div class="et_embedded_videos">' . $et_videos_output . '</div>'; ?>
+			<!-- Start of Project Media Bar-->
+			<div id="multi-media-bar" style="float:right;">
+				<h3 class="title">Participate in our projects</h3>
+				<div id="et-multi-media" class="clearfix">
+					<a id="left-multi-media" href="#"><?php esc_html_e('Previous','Chameleon'); ?></a>
+					<a id="right-multi-media" href="#"<?php esc_html_e('Next','Chameleon'); ?>></a>
+					<div id="media-slides">
+						<?php 
+							$args=array(
+								'showposts' => (int) get_option('chameleon_posts_media'),
+								'category__not_in' => (array) get_option('chameleon_exlcats_media')
+							);
+							query_posts($args);
+							$media_current_post = 1;
+							$media_open = false;
+							
+						?>
+						<?php
+						$projectPod = new Pod('project');
+						$projectPod -> findRecords('name ASC');
+						$total_projects = $projectPod -> getTotalRows();
+						?>
+						<?php if ($total_projects > 0) : ?>
+						
+						<?php while ($projectPod->fetchRecord() ) : ?>
+						  <?php
+						      $projectName = $projectPod->get_field('name');
+						      $projectPicURL = $projectPod->get_field('picture');
+						      $projectOrganisation = $projectPod -> get_field('organisation');
+						      
+						      //data cleanup
+						      $projectPicURL = $projectPicURL[0]['guid'];
+						      
+
+						  ?> 			
+													
+							<?php if ( $media_current_post == 1 || ($media_current_post - 1) % 4 == 0 ) { 
+								$media_open = true; ?>
+								<div class="media-slide">
+							<?php } 
+							if ($projectPicURL != '') // if there is no picture for it then it will not show in the media bar.
+							{
+							?>
+							<div class="thumb">
+																												<a href="<?php echo $projectPicURL; ?>" rel="media" class="fancybox" 
+								    title="<?php echo $projectName; ?>">
+																												<img src="<?php echo $projectPicURL; ?>" class="multi-media-image" alt="project 1"  style="opacity: 1; ">					
+								<span class="more" style="opacity: 0; display: inline; "></span>
+											</a>
+										<div class="media-description" style="display: block; opacity: 0; bottom: 63px; ">
+											<p><?php echo "<b>".$projectName ."</b><br />".$projectOrganisation; ?></p>
+											<span class="media-arrow"></span>
+										</div>
+									</div>
+									 	<!-- end .thumb -->
+							<?php if ( $media_current_post % 4== 0 ) { 
+								$media_open = false; ?>
+								</div> <!-- end .media-slide -->
+							<?php } ?>
+
+							<?php $media_current_post++;?>
+						    <? }?>
+						    <?php endwhile ?>
+						  <?php endif ?>
+						
+						<?php if ( $media_open ) { ?>
+							</div> <!-- end .media-slide -->
+						<?php } ?>
+					</div> <!-- end #media-slides -->
+				</div> <!-- end #et-multi-media -->
+			</div> <!-- end #multi-media-bar -->
+
 		<?php } ?>
 		
 	
-	<!-- MENTOR MEDIA SLIDER END-->
+	<!-- PROJECT MEDIA SLIDER END-->
 	
 		
 			
