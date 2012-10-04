@@ -6,7 +6,7 @@ get_header(); ?>
  <script type="text/javascript">
 
  
-	  function applyBut(butObj)
+	     	      function applyBut(butObj)
 	      {
 	      
 		    if (confirm('Are you sure you want to apply for ' + butObj.getAttribute("value") + ' as your project?' ) )
@@ -45,12 +45,11 @@ get_header(); ?>
       $found_project = true;
 
       // set our variables
-	    $id =		$project->get_field('id');
+	     $id =		$project->get_field('id');
               $project_name      = $project->get_field('name');
               $project_leader  	= $project->get_field('projectleader');
               $project_slug      = $project->get_field('detail_url');
-//               $project_leaderRole = $project->get_field('projectleaderrole');
-              $project_organisation = $project->get_field('organisation');
+	       $project_organisation = $project->get_field('organisation');
 	      $project_location = $project->get_field('location');
 	      $project_pic 	= $project->get_field('picture');
 	      $project_sector 	= $project->get_field('sector');
@@ -86,8 +85,7 @@ get_header(); ?>
          <table>
 			      <thead>
 				<tr>
-				  <th>Project Leader</th>
-				  <th>Organisation</th>
+				  <th>Role</th>
 				  <th>Location</th>
 				  <th>Sector(s)</th>
 				</tr>
@@ -95,21 +93,14 @@ get_header(); ?>
 			      <tbody>
 				<tr>
 				  <td>
-				    <?php echo $project_leader; ?>
+				    <?php echo $project_role; ?>
 				    </td>
 				  </tr>
 				  <tr>
 				    <td>
 				      <?php 
-				      echo  $project_organisation;
-					?>
-				      </td>
-				    </tr>
-				  <tr>
-				    <td>
-				      <?php 
 				      echo  $project_location[0]['name'];
-					?>
+					//echo $project_location; ?>
 				      </td>
 				    </tr>
 				    <tr>
@@ -158,22 +149,21 @@ get_header(); ?>
 					</tbody>
 				      </table>
         </div>
-	<a href="#" data-id="<?hp echo $id;?>" value="<?php echo $project_name?>" onclick="applyBut(this);" id="apply_but" class="icon-button paper-icon"><span class="et-icon"><span>Apply</span></span></a>
+	<a href="#" data-id="<?php echo $id;?>" value="<?php echo $project_name?>" onclick="applyBut(this);" id="apply_but" class="icon-button paper-icon"><span class="et-icon"><span>Apply</span></span></a>
       </div>
 
     <?php else: ?>
 	
       <div class="post">
-	    <h2>Project Not Found</h2>
+	    <h2>project Not Found</h2>
 	    <div class="entry">
-	      <p>Sorry, that Project could not be found!</p>
+	      <p>Sorry, that project could not be found!</p>
 	    </div>
 	  </div>
 	
     <?php endif ?>
   
-    </div> 
-    <!-- end of left area-->
+    </div> <!-- end of left area-->
 
 <?php get_sidebar(); ?>
 </div> <!-- end of content-->
