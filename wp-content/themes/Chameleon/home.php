@@ -83,56 +83,55 @@
 							$media_open = false;
 							$et_videos_output = '';
 						?>
+						
+						
 						<!-- The search will be of the pods Mentor DB. 
 						give the variables below the results from the search. 
 						title: mentor name
 						thumbnail: the url. or below change the code line 118 to take just the url. then have css change the dimensions. !-->
+						<?php
+						$mentorPod = new Pod('mentor');
+						$mentorPod -> findRecords('name ASC');
+						$total_mentors = $mentorPod -> getTotalRows();
+						?>
+						<?php if ($total_mentors > 0) : ?>
 						
-						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-							<?php 
-								$width = 48;
-								$height = 48;
-								$titletext = get_the_title();
-								$thumbnail = get_thumbnail($width,$height,'multi-media-image',$titletext,$titletext,true,'Media');
-								$thumb = $thumbnail["thumb"];
-								$et_medialink = get_post_meta($post->ID,'et_medialink',true) ? get_post_meta($post->ID,'et_medialink',true) : '';
-								$et_videolink = get_post_meta($post->ID,'et_videolink',true) ? get_post_meta($post->ID,'et_videolink',true) : '';
-								$et_media_description = get_post_meta($post->ID,'et_media_description',true) ? get_post_meta($post->ID,'et_media_description',true) : truncate_post(90,false);
-							?>
-							<?php if ( $media_current_post == 1 || ($media_current_post - 1) % 7 == 0 ) { 
+						<?php while ($mentorPod->fetchRecord() ) : ?>
+						  <?php
+						      $mentorName = $mentorPod->get_field('name');
+						      $mentorPicURL = $mentorPod->get_field('picture');
+						      $mentorOrganisation = $mentorPod -> get_field('organisation');
+						      
+						      //data cleanup
+						      $mentorPicURL = $mentorPicURL[0]['guid'];
+						      
+
+						  ?> 			
+													
+							<?php if ( $media_current_post == 1 || ($media_current_post - 1) % 4 == 0 ) { 
 								$media_open = true; ?>
 								<div class="media-slide">
 							<?php } ?>
-									<div class="thumb<?php if ( $media_current_post % 4 == 0 ) echo ' last'; ?>">
-										<?php if ( $et_medialink <> '' ) { ?>
-											<a href="<?php echo esc_url($et_medialink); ?>">
-										<?php } elseif ( $et_videolink <> '' ) { ?>
-											<?php
-												global $wp_embed;
-												$et_video_id = 'et_video_post_' . $post->ID;
-												$et_videos_output .= '<div id="'. esc_attr( $et_video_id ) .'">' . $wp_embed->shortcode( '', $et_videolink ) . '</div>';
-											?>
-											
-											<a href="<?php echo esc_url( '#' . $et_video_id ); ?>" class="et-video fancybox" title="<?php echo esc_attr( $titletext ); ?>">
-										<?php } else { ?>
-											<a href="<?php echo esc_attr($thumbnail["fullpath"]); ?>" rel="media" class="fancybox" title="<?php echo esc_attr($titletext); ?>">
-										<?php } ?>
-												<?php print_thumbnail($thumb, $thumbnail["use_timthumb"], $titletext, $width, $height, 'multi-media-image'); ?>
-												<span class="more"></span>
+							<div class="thumb">
+																												<a href="<?php echo $mentorPicURL; ?>" rel="media" class="fancybox" 
+								    title="<?php echo $mentorName; ?>">
+																												<img src="<?php echo $mentorPicURL; ?>" class="multi-media-image" alt="Mentor 1"  style="opacity: 1; ">					
+																												<span class="more" style="opacity: 0; display: inline; "></span>
 											</a>
-										<div class="media-description">
-											<p><?php echo $et_media_description; ?></p>
+										<div class="media-description" style="display: block; opacity: 0; bottom: 63px; ">
+											<p><?php echo "<b>".$mentorName ."</b><br />".$mentorOrganisation; ?></p>
 											<span class="media-arrow"></span>
 										</div>
-									</div> 	<!-- end .thumb -->
+									</div>
+									 	<!-- end .thumb -->
 							<?php if ( $media_current_post % 4== 0 ) { 
 								$media_open = false; ?>
 								</div> <!-- end .media-slide -->
 							<?php } ?>
 
-							<?php $media_current_post++;
-						endwhile; ?>
-						<?php endif; wp_reset_query(); ?>
+							<?php $media_current_post++;?>
+						    <?php endwhile ?>
+						  <?php endif ?>
 						
 						<?php if ( $media_open ) { ?>
 							</div> <!-- end .media-slide -->

@@ -1,6 +1,12 @@
 /*
 Theme Name: Chameleon
 */
+.multi-media-image
+{
+ height: 100%; 
+ max-width: 60px;
+ max-height: 60px;
+}
 
 #intro{
   
@@ -102,7 +108,7 @@ padding: 0 2px;
 }
 
 #et-multi-media {
-	width: 370px;
+	width: 319px;
 }
 
 .submit .button-primary 
@@ -587,7 +593,7 @@ h3#reply-title small { display: block; }
 #featured #slides { height: 332px; }
 
 #media-slides { height: 60px !important; }
-	.media-slide { width: 507px !important; }
+	.media-slide { width: 330px !important; }
 	
 .et_embedded_videos { display: none; }
 	
