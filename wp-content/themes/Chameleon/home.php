@@ -67,11 +67,11 @@
 	
 	<!-- MENTOR MEDIA SLIDER START-->
 		<?php if ( get_option('chameleon_display_media') == 'on' ) { ?>
-			<div id="multi-media-bar" style="float:left;">
+			<div class="mentor-multi-media-bar" id="multi-media-bar" style="float:left;">
 				<h3 class="title">Meet our mentors</h3>
 				<div id="et-multi-media" class="clearfix">
-					<a id="left-multi-media" href="#"><?php esc_html_e('Previous','Chameleon'); ?></a>
-					<a id="right-multi-media" href="#"<?php esc_html_e('Next','Chameleon'); ?>></a>
+					<a id="left-multi-media-mentor" href="#"><?php esc_html_e('Previous','Chameleon'); ?></a>
+					<a id="right-multi-media-mentor" href="#"<?php esc_html_e('Next','Chameleon'); ?>></a>
 					<div id="media-slides">
 						<?php 
 							$media_current_post = 1;
@@ -135,11 +135,11 @@
 			<!-- Mentor Media Bar END -->
 			
 			<!-- Start of Project Media Bar-->
-			<div id="multi-media-bar" style="float:right;">
+			<div class="project-multi-media-bar" id="multi-media-bar" style="float:right;">
 				<h3 class="title">Participate in our projects</h3>
 				<div id="et-multi-media" class="clearfix">
-					<a id="left-multi-media" href="#"><?php esc_html_e('Previous','Chameleon'); ?></a>
-					<a id="right-multi-media" href="#"<?php esc_html_e('Next','Chameleon'); ?>></a>
+					<a id="left-multi-media-project" href="#"><?php esc_html_e('Previous','Chameleon'); ?></a>
+					<a id="right-multi-media-project" href="#"<?php esc_html_e('Next','Chameleon'); ?>></a>
 					<div id="media-slides">
 						<?php 
 							$args=array(

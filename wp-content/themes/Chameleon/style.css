@@ -4,7 +4,7 @@ Theme Name: Chameleon
 .multi-media-image
 {
  height: 100%; 
- max-width: 60px;
+ max-width: 50px;
  max-height: 60px;
 }
 
@@ -266,9 +266,9 @@ img#about-image { float: left; margin: 3px 8px 8px 0px; }
 			#multi-media-bar { float: left; width: 330px; }	
 				#multi-media-bar h3.title { margin-bottom: 10px; }
 				#et-multi-media { position: relative; border: 1px solid #f0f0f0; border-bottom: 1px solid #d1d1d1; border-right: 1px solid #dcdcdc; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); -moz-box-shadow:1px 1px 3px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); padding: 14px 15px 14px 22px; }
-					a#left-multi-media, a#right-multi-media { position: absolute; top: 30px; width: 27px; height: 27px; text-indent:-9999px; }
-						a#left-multi-media { background:url(images/left-multi-media-arrow.png) no-repeat; left: -13px; }	
-						a#right-multi-media { background:url(images/right-multi-media-arrow.png) no-repeat; right: -13px; }
+					a#left-multi-media-mentor, a#left-multi-media-project, a#right-multi-media-project, a#right-multi-media-mentor { position: absolute; top: 30px; width: 27px; height: 27px; text-indent:-9999px; }
+						a#left-multi-media-mentor, a#left-multi-media-project { background:url(images/left-multi-media-arrow.png) no-repeat; left: -13px; }	
+						a#right-multi-media-mentor, a#right-multi-media-project { background:url(images/right-multi-media-arrow.png) no-repeat; right: -13px; }
 					#et-multi-media .thumb { float: left; margin-right: 16px; position: relative; padding: 4px; border: 1px solid #f0f0f0; border-bottom: 1px solid #d4d4d4; border-right: 1px solid #d4d4d4; box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); -moz-box-shadow:1px 1px 3px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); }
 					#et-multi-media .last { margin-right: 0px; }
 						#et-multi-media .thumb a { display: block !important; }
