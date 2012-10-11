@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<?php if ( get_option('chameleon_featured') == 'on' ) get_template_part('includes/featured'); ?>		
+<?php if (function_exists("easing_slider")){ easing_slider(); }; ?>	
 
 <?php if ( get_option('chameleon_quote') == 'on' ) { ?>
 	<div id="category-name"> 

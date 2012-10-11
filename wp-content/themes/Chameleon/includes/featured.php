@@ -39,11 +39,15 @@
 							'post__in' => (array) get_option('chameleon_feat_pages'),
 							'showposts' => (int) $featured_num
 						));
-		} ?>
+		} ?>      
+			
+		
+			
+			
 		<?php if (have_posts()) : while (have_posts()) : the_post();
 		global $post; ?>
-		
-			<?php if ( $et_slider_type == 'cycle' ) { ?>
+
+		<?php if ( $et_slider_type == 'cycle' ) { ?>
 				<div class="slide">
 					<?php
 					$width = 960;

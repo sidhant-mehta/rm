@@ -70,15 +70,20 @@
 
 			<div id="additional-info">
 				<div id="profile-icons">
-				    <?php 
+					<a href="<?php echo bloginfo('url'); ?>/?page_id=45&action=profile">
+						<img
+						src="<?php echo get_bloginfo('template_directory'); ?>/images/people-icon.png"
+						alt="My Profile" />
+					</a>
+					<?php 
 				    if ( is_user_logged_in() ) { ?>
-				    <a href="<?php echo bloginfo('url'); ?>/?page_id=45&action=profile">
-					<img src= "<?php echo get_bloginfo('template_directory'); ?>/images/people-icon.png" alt="My Profile"/>
-				    </a>
-				     <a href="<?php echo bloginfo('url'); ?>/?page_id=45&action=logout&_wpnonce=9403ecfb64">
-					<img src= "<?php echo get_bloginfo('template_directory'); ?>/images/logout-icon.png" alt="Logout"/>
-				    </a>
-				    <?php }?>
+					<a
+						href="<?php echo bloginfo('url'); ?>/?page_id=45&action=logout&_wpnonce=9403ecfb64">
+						<img
+						src="<?php echo get_bloginfo('template_directory'); ?>/images/logout-icon.png"
+						alt="Logout" />
+					</a>
+					<?php }?>
 				</div>
 				<div id="et-social-icons">
 					<?php
@@ -96,12 +101,18 @@
 						}
 					?>
 				</div>
-
+				<div id = "contact-us">
+					<a href="<?php echo bloginfo('url'); ?>/?page_id=45&action=profile">
+						<i>contact us</i>
+				    </a>
+				</div>
+				
 				<div id="search-form">
 					<form method="get" id="searchform" action="<?php echo home_url(); ?>/">
 						<input type="text" value="<?php esc_attr_e('Search this site...', 'Chameleon'); ?>" name="s" id="searchinput" />
 						<input type="image" src="<?php bloginfo('template_directory'); ?>/images/search_btn.png" id="searchsubmit" />
 					</form>
-				</div> <!-- end #search-form -->
+				</div>  <!--end #search-form -->
+				
 			</div> <!-- end #additional-info -->
 		</div> <!-- end #header -->
