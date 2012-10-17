@@ -42,12 +42,13 @@
 <body <?php body_class(); ?>>
 	<?php do_action('et_header_top'); ?>
 	<div id="container">
+	<p id="beta-site"> This is our Beta Site. Full site with full functionality launching soon.</p> 
 		<div id="header" class="clearfix">
 			<a href="<?php bloginfo('url'); ?>">
 				<?php $logo = (get_option('chameleon_logo') <> '') ? get_option('chameleon_logo') : get_bloginfo('template_directory').'/images/logo.png'; ?>
 				<img src="<?php echo esc_url($logo); ?>" alt="<?php echo esc_attr(get_bloginfo('name')); ?>" id="logo"/>
 			</a>
-			<p id="slogan"><?php bloginfo('description'); ?></p>
+			<p id="slogan">Raison Mentor</p>
 			<?php do_action('et_header'); ?>
 
 			<?php $menuClass = 'nav';

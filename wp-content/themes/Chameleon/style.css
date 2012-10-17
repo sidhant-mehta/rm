@@ -8,6 +8,14 @@ letter-spacing: 2px;
 line-height: 5em;
 }
 
+#beta-site {
+font-family: verdana;
+font-size: 1em;
+position: absolute;
+top: -22px;
+left: 4px;
+}
+
 #comingSoon {
 text-align: center;
 font-size: 3em;
@@ -251,9 +259,23 @@ img#about-image { float: left; margin: 3px 8px 8px 0px; }
 
 #container { text-align: left; margin: 0 auto; width: 960px; position: relative; box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1); -moz-box-shadow:0px 0px 6px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1); -webkit-border-radius: 7px; -moz-border-radius: 7px; border-radius: 7px; background: #fff url(images/header-shadow.png) repeat-x top; }
 	#header { position: relative; padding:30px 35px 3px; }
-		#logo { float: left; }	
-		p#slogan { float: left; font-size: 12.5px; color: #66929c; text-transform: uppercase; padding-top: 0px; margin-left: -143px; margin-top: 27px; font-family: 'Kreon', Arial, sans-serif;}
-		ul#top-menu { float: right; padding-top: 30px; }	
+		#logo { float: left; }
+
+p#slogan {
+	float: left;
+	font-size: 1.7em;
+	color: #0E2A7D /*#66929C*/;
+	text-transform: uppercase;
+	padding-top: 0px;
+	margin-left: 21px;
+	margin-top: 7px;
+	font-family: 'Kreon', Arial, sans-serif;
+	left: 300px;
+	top: 6px;
+	letter-spacing: 3px;
+}
+
+ul#top-menu { float: right; padding-top: 30px; }	
 		#additional-info { position:absolute; top: 1px; right: 1px; }
 			#et-social-icons { float: left; padding-top: 9px; padding-right: 20px; }
 				#et-social-icons  a { padding-left: 3px; }
